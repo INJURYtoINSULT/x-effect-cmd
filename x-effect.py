@@ -11,6 +11,8 @@ def main():
                  help="Display the calendar")
     p.add_option('--tick', '-t', action="store_true", default=False,
                  help="Tick the current day off")
+    p.add_option('--reset', '-r', action="store_true", default=False,
+                 help="Reset the calendar to blank")
     options, arguments = p.parse_args()
 
     if options.tick:
@@ -28,6 +30,11 @@ def main():
             draw_calendar(calendar)
         else:
             print("No calendar available.")
+
+    if options.reset:
+        new_calendar()
+        calendar = load_calendar()
+        draw_calendar(calendar)
 
 
 def draw_calendar(calendar):
