@@ -64,7 +64,10 @@ def tick_calendar(calendar):
     """Adds a tick mark to the array at current date."""
     today = datetime.datetime.now()
     day_diff = compare_date(today, calendar[0])
-    calendar[day_diff + 1] = "✓"
+    if len(calendar) > day_diff + 1:
+        calendar[day_diff + 1] = "✓"
+    else:
+        print("You have passed the 49 day mark.")
 
 
 def compare_date(today, start_date):
