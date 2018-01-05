@@ -24,7 +24,10 @@ def main():
 
     if options.show:
         calendar = load_calendar()
-        draw_calendar(calendar)
+        if calendar:
+            draw_calendar(calendar)
+        else:
+            print("No calendar available.")
 
 
 def draw_calendar(calendar):
